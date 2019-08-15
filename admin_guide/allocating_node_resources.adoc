@@ -40,13 +40,13 @@ Resources reserved for node components are based on two node settings:
 
 You can set these in the `*kubeletArguments*` section of the
 xref:../admin_guide/manage_nodes.adoc#modifying-nodes[node
-configuration map] by using a set of `<resource_type>=<resource_quantity>` pairs 
+configuration map] by using a set of `<resource_type>=<resource_quantity>` pairs
 (e.g., *cpu=200m,memory=512Mi*). Add the section if it does not already exist:
 
 [NOTE]
 ====
 Do not edit the `node-config.yaml` file directly.
-==== 
+====
 
 .Node Allocatable Resources Settings
 ====
@@ -262,8 +262,8 @@ To better enforce QoS under this situation, the node applies the hard eviction t
 the top-level cgroup for all pods to be `Node Allocatable + Eviction Hard Thresholds`.
 
 If system daemons do not use up all their reservation, the node will evict pods whenever
-they consume more than `28.9Gi` of memory. If eviction does not occur in time, a pod
-will be OOM killed if pods consume `29Gi` of memory.
+they collectively consume more than `28.9Gi` of memory. If eviction does not occur in time, a pod
+will be OOM killed if pods collectively consume `29Gi` of memory.
 
 [[allocating-node-scheduler]]
 == Scheduler
